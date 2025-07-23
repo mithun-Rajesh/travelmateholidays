@@ -42,7 +42,7 @@ body {
         /* Ensures it appears above other elements */
     }
     .navbar-toggler-icon {
-        background-image: url("/Resources/adventure.webp");
+        background-image: url("/Resources/honeymoonpak5.jpg");
         filter: brightness(-100%);
     }
     .fs-xl-5 {
@@ -179,7 +179,7 @@ body {
 /* ---------Hero Section--------- */
 
 .hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/Resources/adventure.webp') center/cover no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/Resources/honeymoonpak5.jpg') center/cover no-repeat;
     color: white;
     padding: 150px 0;
     text-align: center;
