@@ -26,10 +26,10 @@ The project includes the following pages:
 
 ## 👨‍👩‍👧‍👦 Team Members
 
-1. Dhaniyal Jose
-2. Mithun Rajesh
-3. Vyshna Suresh
-4. Ayisha S Anil
+1. Dhaniyal Jose CSE
+2. Mithun Rajesh CSE
+3. Vyshna Suresh CSE
+4. Ayisha S Anil CSE
 
 ## 📦 Installation & Usage
 
