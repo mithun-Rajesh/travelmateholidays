@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>South India Adventure Packages</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2E8B57;
+            --secondary-color: #2C3E50;
+            --accent-color: #E8F5E9;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #FDFBF9;
+        }
+
+        .layout_padding {
+            padding: 0px 0;
+        }
+
+        .adventure_section {
+            background: linear-gradient(rgba(44, 62, 80, 0.05), rgba(44, 62, 80, 0.05)), url('path-to-your-adventure-background.jpg') center/cover;
+            padding: 100px 0;
+        }
+
+        .adventure_text {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--secondary-color);
+            letter-spacing: 1px;
+        }
+
+        .package-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            margin-bottom: 50px;
+            transition: transform 0.3s ease;
+        }
+
+        .package-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .image_3 {
+            position: relative;
+            overflow: hidden;
+            height: 300px;
+        }
+
+        .image_3 img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .package-card:hover .image_3 img {
+            transform: scale(1.1);
+        }
+
+        .package_content {
+            padding: 40px;
+        }
+
+        .package_text {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+
+        .long_text {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        .features-list {
+            margin-bottom: 30px;
+        }
+
+        .features-list li {
+            margin-bottom: 12px;
+            color: #555;
+        }
+
+        .features-list i {
+            color: var(--primary-color);
+            margin-right: 10px;
+        }
+
+        .price-tag {
+            font-size: 2rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
+
+        .book_bt a {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 30px;
+            display: inline-block;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        .book_bt a:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(46, 139, 87, 0.3);
+        }
+
+        /*navigation*/
+
+        .navbar {
+            width: 100%;
+            padding: 0 1rem 0 1rem;
+        }
+
+        .fs-xl-5 {
+            font-size: 1.25rem;
+            /* Matches Bootstrap's fs-5 size */
+        }
+
+        @media (max-width: 992px) {
+            .navbar {
+                background-color: #ffffffc0;
+                /* Replace with desired solid color */
+                padding: 0 !important;
+            }
+            .nav-link {
+                color: #000000 !important;
+            }
+            .navbar-toggler {
+                color: rgb(22, 21, 21);
+                border-color: rgb(0, 0, 0);
+                /* Ensures the border of the button is white */
+                margin: 0;
+                /* Removes any margin */
+                position: absolute;
+                top: 2rem;
+                right: 1rem;
+                z-index: 1031;
+                /* Ensures it appears above other elements */
+            }
+            .navbar-toggler-icon {
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba%28255, 255, 255, 1%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+                filter: brightness(-100%);
+            }
+            .fs-xl-5 {
+                font-size: inherit;
+                /* Reverts to default size on smaller screens */
+            }
+            .nav-item {
+                margin-left: 1rem;
+            }
+            .book-now-btn {
+                width: fit-content;
+                margin: .5rem 0 0 .5rem;
+                margin-bottom: 1rem;
+                color: #000000 !important;
+                border: 1px groove #000000 !important;
+                box-shadow: 0px 2px 3px #000000 !important;
+            }
+            .hero-content {
+                margin-top: 75% !important;
+            }
+            .nav-link::after {
+                background-color: #000000 !important;
+                transition: width 0.8s ease-out !important;
+            }
+        }
+
+        /* Navbar solid background when scrolled */
+
+        /* Scrolled state */
+
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Nav link styles */
+
+        .nav-link {
+            color: #ffffff;
+            font-weight: 500;
+            transition: color 0.3s ease-in-out;
+            position: relative;
+        }
+
+        /* Scrolled state for nav links */
+
+        .nav-link {
+            color: #000000;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #ffffff;
+            color: #000;
+            transition: width 0.4s ease-out;
+        }
+
+        .nav-link::after {
+            background-color: #000000;
+            color: #fff;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: #ffffff;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.8);
+            z-index: 1;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .dropdown-item {
+            padding: 10px;
+            color: #000000;
+            font-weight: 400;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .dropdown-item:hover {
+            color: #ffffff;
+            background-color: #3b3b3b;
+        }
+
+        /* Book Now button style */
+
+        .book-now-btn {
+            background-color: #e9f0f8;
+            color: #000000 !important;
+            border: 1px groove #050505;
+            transition: ease-in-out 0.3s;
+            box-shadow: 0px 2px 3px #000000;
+            ;
+            padding: 8px 20px !important;
+            font-weight: 700;
+            border-radius: 5px;
+        }
+
+        .book-now-btn:hover {
+            color: #000000 !important;
+            transition: ease-in-out 0.3s;
+            box-shadow: 0px 4px 10px #383838;
+            transform: scale(1.1);
+        }
+
+        .book-now-btn:active {
+            transform: scale(0.9);
+            box-shadow: inset 2px 2px 10px 3px #8b8b8b;
+        }
+
+        /* ---------navbar End--------- */
+
+        /* ----- Footer Styles---- */
+
+        footer {
+            background: linear-gradient(135deg, #2c3e50 0%, #186aa0 100%);
+            color: #f4f4f4;
+            padding: 60px 0 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Add a subtle overlay effect */
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.1);
+            z-index: 1;
+        }
+
+        footer * {
+            position: relative;
+            z-index: 2;
+        }
+
+        footer h4 {
+            color: #fff;
+            font-weight: 700;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        footer ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        footer ul li {
+            margin-bottom: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        footer ul li a {
+            color: #f4f4f4;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+        }
+
+        footer ul li a:hover {
+            color: #3498db;
+            opacity: 1;
+            transform: translateX(10px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: #fff;
+            font-size: 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: #3498db;
+            transform: scale(1.1);
+        }
+
+        /* --------footer end------ */
+
+        /* ---------social icons--------- */
+
+        /* Social contact Buttons*/
+
+        .social-contact-container {
+            position: fixed;
+            right: 20px;
+            top: 75%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        .social-contact-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: white !important;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .social-contact-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .social-contact-btn:hover::before {
+            opacity: 1;
+        }
+
+        .whatsapp-btn {
+            background: linear-gradient(145deg, #25D366, #128C7E);
+            box-shadow: inset 2px 3px 10px #013615;
+        }
+
+        .phone-btn {
+            background: linear-gradient(145deg, #4CAF50, #45A049);
+            box-shadow: inset 2px 3px 10px #034205;
+        }
+
+        .email-btn {
+            background: linear-gradient(145deg, #FF4081, #F50057);
+            box-shadow: inset 2px 3px 10px #57031f;
+        }
+
+        .social-contact-btn i {
+            font-size: 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .social-contact-btn:hover {
+            transform: scale(1.1) translateZ(20px);
+        }
+
+        @media (max-width: 768px) {
+            .social-contact-container {
+                right: 10px;
+                top: 80%;
+            }
+            .social-contact-btn {
+                width: 40px;
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container-fluid">
+            <!-- Use container-fluid for better responsiveness -->
+            <a class="navbar-brand" href="#">
+                <img src="Resources/logo.png" alt="TravelMate" style="height: auto; max-width: 100%; width: 11rem;">
+            </a>
+            <button class="navbar-toggler text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto fs-xl-5">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="About.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Service.html">Services</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="packagesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Packages
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="packagesDropdown">
+                            <li><a class="dropdown-item" href="honeymoon.html">HONEYMOON PACKAGE</a></li>
+                            <li><a class="dropdown-item" href="keralapak.html">KERALA PACKAGE</a></li>
+                            <li><a class="dropdown-item" href="tamilnadupak.html">TAMILNADU PACKAGE</a></li>
+                            <li><a class="dropdown-item" href="pilgrimpak.html">PILGRIM PACKAGE</a></li>
+                            <li><a class="dropdown-item" href="southindpak.html">SOUTH INDIA ADVENTURE PACKAGE</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item ms-2">
+                        <a class="nav-link book-now-btn " href="Booknow.html">BOOK NOW</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Adventure Package Section Start -->
+    <div id="adventure" class="adventure_section">
+        <div class="container">
+            <div class="text-center">
+                <h1 class="adventure_text">South India <span style="color: var(--primary-color);">Adventure</span> Trails
+                </h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="adventure_section_2 layout_padding">
+        <div class="container">
+            <div class="package-card">
+                <div class="row g-0">
+                    <div class="col-md-6">
+                        <div class="image_3">
+                            <img src="Resources//southpak1.webp" alt="Wayanad Adventures">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="package_content">
+                            <h1 class="package_text">Wayanad Wilderness Explorer</h1>
+                            <p class="long_text">Embark on an adventurous journey through the lush forests of Wayanad. Experience thrilling activities amidst stunning natural landscapes.</p>
+                            <ul class="features-list list-unstyled">
+                                <li><i class="fas fa-check-circle"></i> Night Jungle Safari</li>
+                                <li><i class="fas fa-check-circle"></i> Bamboo Rafting</li>
+                                <li><i class="fas fa-check-circle"></i> Trekking to Chembra Peak</li>
+                                <li><i class="fas fa-check-circle"></i> Zip Lining Adventures</li>
+                            </ul>
+                            <div class="price-tag">From ₹12,000.00</div>
+                            <div class="book_bt"><a href="Booknow.html">Book Adventure</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="package-card">
+                <div class="row g-0">
+                    <div class="col-md-6 order-md-2">
+                        <div class="image_3">
+                            <img src="Resources/southpak2.webp" alt="Coorg Adventures">
+                        </div>
+                    </div>
+                    <div class="col-md-6 order-md-1">
+                        <div class="package_content">
+                            <h1 class="package_text">Coorg Adrenaline Rush</h1>
+                            <p class="long_text">Discover the thrill of adventure in the Scotland of India. From white water rafting to mountain biking, experience the best of Coorg.</p>
+                            <ul class="features-list list-unstyled">
+                                <li><i class="fas fa-check-circle"></i> White Water Rafting</li>
+                                <li><i class="fas fa-check-circle"></i> Mountain Biking Trails</li>
+                                <li><i class="fas fa-check-circle"></i> Waterfall Rappelling</li>
+                                <li><i class="fas fa-check-circle"></i> Camping Under Stars</li>
+                            </ul>
+                            <div class="price-tag">From ₹15,000.00</div>
+                            <div class="book_bt"><a href="Booknow.html">Book Adventure</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="package-card">
+                <div class="row g-0">
+                    <div class="col-md-6">
+                        <div class="image_3">
+                            <img src="Resources/southpak3.webp" alt="Munnar Adventures">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="package_content">
+                            <h1 class="package_text">Munnar Mountain Challenge</h1>
+                            <p class="long_text">Take on the challenging terrains of Munnar's mountains. Experience high-altitude adventures and thrilling activities in the Western Ghats.</p>
+                            <ul class="features-list list-unstyled">
+                                <li><i class="fas fa-check-circle"></i> Rock Climbing</li>
+                                <li><i class="fas fa-check-circle"></i> Paragliding Sessions</li>
+                                <li><i class="fas fa-check-circle"></i> Off-road Jeep Safari</li>
+                                <li><i class="fas fa-check-circle"></i> Adventure Camping</li>
+                            </ul>
+                            <div class="price-tag">From ₹18,000.00</div>
+                            <div class="book_bt"><a href="Booknow.html">Book Adventure</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="package-card">
+                <div class="row g-0">
+                    <div class="col-md-6 order-md-2">
+                        <div class="image_3">
+                            <img src="Resources/southpak4.webp" alt="Hampi Adventures">
+                        </div>
+                    </div>
+                    <div class="col-md-6 order-md-1">
+                        <div class="package_content">
+                            <h1 class="package_text">Hampi Bouldering Quest</h1>
+                            <p class="long_text">Experience a unique adventure in the UNESCO World Heritage Site of Hampi, where ancient ruins meet thrilling bouldering experiences and amidst stunning landscapes.
+                            </p>
+                            <ul class="features-list list-unstyled">
+                                <li><i class="fas fa-check-circle"></i> Guided Bouldering Sessions</li>
+                                <li><i class="fas fa-check-circle"></i> Coracle Ride on Tungabhadra River</li>
+                                <li><i class="fas fa-check-circle"></i> Matanga Hill Sunrise Trek</li>
+                                <li><i class="fas fa-check-circle"></i> Exploration of Ruined Temples & Caves</li>
+                            </ul>
+                            <div class="price-tag">From ₹15,000.00</div>
+                            <div class="book_bt"><a href="Booknow.html">Book Adventure</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="package-card">
+                <div class="row g-0">
+                    <div class="col-md-6">
+                        <div class="image_3">
+                            <img src="Resources/southpak5.jpg" alt="Dandeli Adventures">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="package_content">
+                            <h1 class="package_text">Dandeli River Rapid Challenge</h1>
+                            <p class="long_text">Feel the adrenaline rush as you conquer the roaring Kali River Rapid in Dandeli. A paradise for the adventure seekers, this destination offers water sports, wildlife, and deep jungle exploration.
+                            </p>
+                            <ul class="features-list list-unstyled">
+                                <li><i class="fas fa-check-circle"></i> Whitewater Rafting on Kali River</li>
+                                <li><i class="fas fa-check-circle"></i> Kayaking & Canoeing</li>
+                                <li><i class="fas fa-check-circle"></i> Ziplining Over the Rapids</li>
+                                <li><i class="fas fa-check-circle"></i> Caving at Kavala Caves </li>
+                            </ul>
+                            <div class="price-tag">From ₹17,000.00</div>
+                            <div class="book_bt"><a href="Booknow.html">Book Adventure</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Adventure Package Section End -->
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h4>About Us</h4>
+                    <p style="text-align: justify;" class="mx-sm-2 mx-lg-0 mx-md-9 mx-xl-0 mx-xxl-0 px-3">We at THE TRAVELMATE HOLIDAYS are passionate about creating life-changing experiences that reveal India's essence. Our team of enthusiastic travelers is dedicated to crafting unforgettable journeys.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=100064947096297&name=xhp_nt_fbliteprofile_tab_bar" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/the_travelmate?t=_E4s79wurKZxhOTbwS8T7Q&s=08" aria-label="Twitter"><i
+                                class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/travelmate_holidays_trivandrum?igsh=MWF2NnAxYngwMHc1bA==" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h4>Travel Packages</h4>
+                    <ul>
+                        <li><a href="honeymoon.html">Honeymoon Packages</a></li>
+                        <li><a href="keralapak.html">Kerala Packages</a></li>
+                        <li><a href="pilgrimpak.html">Pilgrim Packages</a></li>
+                        <li><a href="tamilnadupak.html">Tamilnadu Package</a></li>
+                        <li><a href="southindpak.html">South India Adventure Package</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="About.html">About</a></li>
+                        <li><a href="Service.html">Services</a></li>
+                        <li><a href="Contact.html">Contact Us</a></li>
+                        <li><a href="Booknow.html">Book Now</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h4>Contact Info</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> The Travelmate Holidays Inc<br> Thirumala P.O Trivandrum,<br> Kerala, India.</li>
+                        <li><i class="fas fa-phone"></i> +91 9048828890</li>
+                        <li><i class="fas fa-envelope"></i>thetravelmateholidays@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="container-fluid text-center py-2" style="background-color:#143049;">
+        <p class="mb-0 text-white small">
+            &copy; <span id="current-year"></span> Agileinfo Techytern Solutions LLP. All rights reserved.
+        </p>
+    </div>
+
+    <!-- Social Contact Buttons -->
+
+    <div class="social-contact-container">
+        <a href="https://wa.me/+91 9048828890" target="_blank" class="social-contact-btn whatsapp-btn" aria-label="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="tel:+91 9048828890" class="social-contact-btn phone-btn" aria-label="Call Us">
+            <i class="fas fa-phone"></i>
+        </a>
+        <a href="mailto:thetravelmateholidays@gmail.com" class="social-contact-btn email-btn" aria-label="Email Us">
+            <i class="fas fa-envelope"></i>
+        </a>
+    </div>
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const navbarHeight = document.querySelector('.navbar').offsetHeight;
+            document.body.style.paddingTop = `${navbarHeight}px`;
+        });
+
+        // Get current year
+
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>
