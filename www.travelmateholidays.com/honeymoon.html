@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Honeymoon Packages</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        root {
+            --primary-color: #B76E79;
+            --secondary-color: #2C3E50;
+            --accent-color: #F9D5D3;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #FDFBF9;
+        }
+
+        /*navigation*/
+
+        .navbar {
+            width: 100%;
+            padding: 0 1rem 0 1rem;
+        }
+
+        .fs-xl-5 {
+            font-size: 1.25rem;
+            /* Matches Bootstrap's fs-5 size */
+        }
+
+        @media (max-width: 992px) {
+            .navbar {
+                background-color: #ffffffc0;
+                /* Replace with desired solid color */
+                padding: 0 !important;
+            }
+            .nav-link {
+                color: #000000 !important;
+            }
+            .navbar-toggler {
+                color: rgb(22, 21, 21);
+                border-color: rgb(0, 0, 0);
+                /* Ensures the border of the button is white */
+                margin: 0;
+                /* Removes any margin */
+                position: absolute;
+                top: 2rem;
+                right: 1rem;
+                z-index: 1031;
+                /* Ensures it appears above other elements */
+            }
+            .navbar-toggler-icon {
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba%28255, 255, 255, 1%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+                filter: brightness(-100%);
+            }
+            .fs-xl-5 {
+                font-size: inherit;
+                /* Reverts to default size on smaller screens */
+            }
+            .nav-item {
+                margin-left: 1rem;
+            }
+            .book-now-btn {
+                width: fit-content;
+                margin: .5rem 0 0 .5rem;
+                margin-bottom: 1rem;
+                color: #000000 !important;
+                border: 1px groove #000000 !important;
+                box-shadow: 0px 2px 3px #000000 !important;
+            }
+            .hero-content {
+                margin-top: 75% !important;
+            }
+            .nav-link::after {
+                background-color: #000000 !important;
+                transition: width 0.8s ease-out !important;
+            }
+        }
+
+        /* Navbar solid background when scrolled */
+
+        /* Scrolled state */
+
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Nav link styles */
+
+        .nav-link {
+            color: #ffffff;
+            font-weight: 500;
+            transition: color 0.3s ease-in-out;
+            position: relative;
+        }
+
+        /* Scrolled state for nav links */
+
+        .nav-link {
+            color: #000000;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #ffffff;
+            color: #000;
+            transition: width 0.4s ease-out;
+        }
+
+        .nav-link::after {
+            background-color: #000000;
+            color: #fff;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: #ffffff;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.8);
+            z-index: 1;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .dropdown-item {
+            padding: 10px;
+            color: #000000;
+            font-weight: 400;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .dropdown-item:hover {
+            color: #ffffff;
+            background-color: #3b3b3b;
+        }
+
+        /* Book Now button style */
+
+        .book-now-btn {
+            background-color: #e9f0f8;
+            color: #000000 !important;
+            border: 1px groove #050505;
+            transition: ease-in-out 0.3s;
+            box-shadow: 0px 2px 3px #000000;
+            ;
+            padding: 8px 20px !important;
+            font-weight: 700;
+            border-radius: 5px;
+        }
+
+        .book-now-btn:hover {
+            color: #000000 !important;
+            transition: ease-in-out 0.3s;
+            box-shadow: 0px 4px 10px #383838;
+            transform: scale(1.1);
+        }
+
+        .book-now-btn:active {
+            transform: scale(0.9);
+            box-shadow: inset 2px 2px 10px 3px #8b8b8b;
+        }
+
+        /* ---------navbar End--------- */
+
+        @media screen and (max-width: 768px) {
+            .hero-content {
+                margin-top: 50% !important;
+            }
+        }
+
+        @media screen and (max-width:380px) {
+            .honeymoon_text {
+                font-size: 2rem !important;
+            }
+        }
+
+        .layout_padding {
+            padding: 100px 0;
+        }
+
+        .honeymoon_section {
+            background: linear-gradient(rgba(44, 62, 80, 0.05), rgba(44, 62, 80, 0.05)), url('path-to-your-background-image.jpg') center/cover;
+            padding: 40px 0;
+        }
+
+        .honeymoon_text {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-top: 3rem;
+            font-weight: 700;
+            text-align: center;
+            color: var(--secondary-color);
+            letter-spacing: 1px;
+        }
+
+        .package-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            margin-bottom: 50px;
+            transition: transform 0.3s ease;
+        }
+
+        .package-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .image_3 {
+            position: relative;
+            overflow: hidden;
+            height: 300px;
+            width: 100%;
+        }
+
+        .image_3 img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .package-card:hover .image_3 img {
+            transform: scale(1.1);
+        }
+
+        .package_content {
+            padding: 40px;
+        }
+
+        .package_text {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+
+        .long_text {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        .features-list {
+            margin-bottom: 30px;
+        }
+
+        .features-list li {
+            margin-bottom: 12px;
+            color: #555;
+        }
+
+        .features-list i {
+            color: var(--primary-color);
+            margin-right: 10px;
+        }
+
+        .price-tag {
+            font-size: 2rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
+
+        .book_bt a {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 30px;
+            display: inline-block;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        .book_bt a:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(183, 110, 121, 0.3);
+        }
+
+        .accent-bg {
+            background-color: var(--accent-color);
+            padding: 80px 0;
+        }
+
+        /* ----- Footer Styles---- */
+
+        footer {
+            background: linear-gradient(135deg, #2c3e50 0%, #186aa0 100%);
+            color: #f4f4f4;
+            padding: 60px 0 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Add a subtle overlay effect */
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.1);
+            z-index: 1;
+        }
+
+        footer * {
+            position: relative;
+            z-index: 2;
+        }
+
+        footer h4 {
+            color: #fff;
+            font-weight: 700;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        footer ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        footer ul li {
+            margin-bottom: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        footer ul li a {
+            color: #f4f4f4;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+        }
+
+        footer ul li a:hover {
+            color: #3498db;
+            opacity: 1;
+            transform: translateX(10px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: #fff;
+            font-size: 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: #3498db;
+            transform: scale(1.1);
+        }
+
+        /* --------footer end------ */
+
+        /* ---------social icons--------- */
+
+        /* Social contact Buttons*/
+
+        .social-contact-container {
+            position: fixed;
+            right: 20px;
+            top: 75%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        .social-contact-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: white !important;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .social-contact-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .social-contact-btn:hover::before {
+            opacity: 1;
+        }
+
+        .whatsapp-btn {
+            background: linear-gradient(145deg, #25D366, #128C7E);
+            box-shadow: inset 2px 3px 10px #013615;
+        }
+
+        .phone-btn {
+            background: linear-gradient(145deg, #4CAF50, #45A049);
+            box-shadow: inset 2px 3px 10px #034205;
+        }
+
+        .email-btn {
+            background: linear-gradient(145deg, #FF4081, #F50057);
+            box-shadow: inset 2px 3px 10px #57031f;
+        }
+
+        .social-contact-btn i {
+            font-size: 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .social-contact-btn:hover {
+            transform: scale(1.1) translateZ(20px);
+        }
+
+        @media (max-width: 768px) {
+            .social-contact-container {
+                right: 10px;
+                top: 80%;
+            }
+            .social-contact-btn {
+                width: 40px;
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container-fluid">
+            <!-- Use container-fluid for better responsiveness -->
+            <a class="navbar-brand" href="#">
+                <img src="Resources/logo.png" alt="TravelMate" style="height: auto; max-width: 100%; width: 11rem;">
+            </a>
+            <button class="navbar-toggler text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto fs-xl-5">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="About.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Service.html">Services</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="packagesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Packages
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="packagesDropdown">
+                            <li><a class="dropdown-item" href="honeymoon.html">HONEYMOON PACKAGE</a></li>
+                            <li><a class="dropdown-item" href="keralapak.html">KERALA PACKAGE</a></li>
+                            <li><a class="dropdown-item" href="tamilnadupak.html">TAMILNADU PACKAGE</a></li>
+                            <li><a class="dropdown-item" href="pilgrimpak.html">PILGRIM PACKAGE</a></li>
+                            <li><a class="dropdown-item" href="southindpak.html">SOUTH INDIA ADVENTURE PACKAGE</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item ms-2">
+                        <a class="nav-link book-now-btn " href="Booknow.html">BOOK NOW</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Honeymoon Package Section Start -->
+    <div id="honeymoon" class="honeymoon_section">
+        <div class="container">
+            <div class="text-center">
+                <h1 class="honeymoon_text">Luxury <span style="color: var(--primary-color);">Honeymoon</span> Collection
+                </h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="honeymoon_section_2 layout_padding">
+        <div class="container">
+            <div class="package-card">
+                <div class="row g-0">
+                    <div class="col-md-6">
+                        <div class="image_3">
+                            <img src="Resources/honeymoon1.webp" alt="Romantic Beach Resort">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="package_content">
+                            <h1 class="package_text">7 Days Kerala Honeymoon Package</h1>
+                            <p class="long_text">Embark on a magical 7-day honeymoon in Kerala, where romance meets nature's splendor. From serene backwaters and misty hill stations to sun-kissed beaches, experience an unforgettable getaway.</p>
+                            <ul class="features-list list-unstyled">
+                                <li><i class="fas fa-check-circle"></i> Scenic Hill Station Retreat</li>
+                                <li><i class="fas fa-check-circle"></i> Exciting Wildlife Safari</li>
+                                <li><i class="fas fa-check-circle"></i> Romantic Backwater Cruise</li>
+                                <li><i class="fas fa-check-circle"></i> Tranquil Beach Escape</li>
+                            </ul>
+                            <div class="price-tag">From ₹46,170.00</div>
+                            <div class="book_bt"><a href="Booknow.html">Reserve Now</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="package-card">
+                <div class="row g-0">
+                    <div class="col-md-6 order-md-2">
+                        <div class="image_3">
+                            <img src="Resources/honeymoon2.webp" alt="Hill Station Resort">
+                        </div>
+                    </div>
+                    <div class="col-md-6 order-md-1">
+                        <div class="package_content">
+                            <h1 class="package_text">6 Days Kerala Honeymoon Package</h1>
+                            <p class="long_text">Celebrate your love with 6-day honeymoon journey through Kerala's most charming destinations. Every moment is designed for romance, ensuring a perfect start to your new journey. This experience is crafted for couples seeking
+                                tranquility, adventure and cherished moments together. </p>
+                            <ul class="features-list list-unstyled">
+                                <li><i class="fas fa-check-circle"></i> Refreshing Munnar Hill Station Getaway</li>
+                                <li><i class="fas fa-check-circle"></i> Serene Alleppey Backwater Cruise</li>
+                                <li><i class="fas fa-check-circle"></i> Blissful Cherai Beach Escape</li>
+
+                            </ul>
+                            <div class="price-tag">From ₹46,440.00</div>
+                            <div class="book_bt"><a href="Booknow.html">Reserve Now</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="package-card">
+                <div class="row g-0">
+                    <div class="col-md-6">
+                        <div class="image_3">
+                            <img src="Resources/honeymoon3.webp" alt="Romantic Beach Resort">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="package_content">
+                            <h1 class="package_text">4 Days Kerala Honeymoon Package</h1>
+                            <p class="long_text">Experience the perfect blend of nature and luxury in this 4-day Kerala honeymoon Package. Unwind in a private resort amidst Munnar's lush green hills and enjoy an exclusive houseboat stay in Alleppey's serene backwaters. This
+                                intimate getaway is designed for couples seeking privacy, comfort, and unforgettable moments.
+                            </p>
+                            <ul class="features-list list-unstyled">
+                                <li><i class="fas fa-check-circle"></i> Munnar Private Resort Experience</li>
+                                <li><i class="fas fa-check-circle"></i> Exclusive Alleppey Stay</li>
+                                <li><i class="fas fa-check-circle"></i> Breathtaking Munnar Hill Station</li>
+                                <li><i class="fas fa-check-circle"></i> Luxury Alleppey Private Houseboat</li>
+                            </ul>
+                            <div class="price-tag">From ₹37,710.00</div>
+                            <div class="book_bt"><a href="Booknow.html">Reserve Now</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="package-card">
+                <div class="row g-0">
+                    <div class="col-md-6 order-md-2">
+                        <div class="image_3">
+                            <img src="Resources/honeymoon4.webp" alt="Hill Station Resort">
+                        </div>
+                    </div>
+                    <div class="col-md-6 order-md-1">
+                        <div class="package_content">
+                            <h1 class="package_text">4 Days Short & Romantic Package</h1>
+                            <p class="long_text">Escape into a world of romance with this 4-day Kerala Package. Cruise through the charming Alleppey backwaters, experience the serenity of Kumarakom, and relax on the golden sands of Cherai Beach.
+                            </p>
+                            <ul class="features-list list-unstyled">
+                                <li><i class="fas fa-check-circle"></i> Charming Kumarakom Retreat</li>
+                                <li><i class="fas fa-check-circle"></i> Romantic Alleppey Houseboat Stay</li>
+                                <li><i class="fas fa-check-circle"></i> Soothing Cherai Beach Experience</li>
+
+                            </ul>
+                            <div class="price-tag">From ₹31,050.00</div>
+                            <div class="book_bt"><a href="Booknow.html">Reserve Now</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="package-card">
+                <div class="row g-0">
+                    <div class="col-md-6">
+                        <div class="image_3">
+                            <img src="Resources/honeymoonpak5.jpg" alt="Romantic Beach Resort" width="auto" max-width="-100%" height="auto">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="package_content">
+                            <h1 class="package_text">7 Days Kerala Honeymoon Package With Taj Hotels</h1>
+                            <p class="long_text">Indulge in an unforgettable 7-day honeymoon in Kerala with the world-class luxury of Taj Hotels. Experience unmatched comfort, personalized service, and breathtaking views, making your honeymoon truly special.
+                            </p>
+                            <ul class="features-list list-unstyled">
+                                <li><i class="fas fa-check-circle"></i> Luxury Stay at Taj Hotels</li>
+                                <li><i class="fas fa-check-circle"></i> Private Beachside Experience</li>
+                                <li><i class="fas fa-check-circle"></i> Signature Taj Hospitality</li>
+
+                            </ul>
+                            <div class="price-tag">From ₹124,020.00</div>
+                            <div class="book_bt"><a href="Booknow.html">Reserve Now</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- Honeymoon Package Section End -->
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h4>About Us</h4>
+                    <p style="text-align: justify;" class="mx-sm-2 mx-lg-0 mx-md-9 mx-xl-0 mx-xxl-0 px-3">We at THE TRAVELMATE HOLIDAYS are passionate about creating life-changing experiences that reveal India's essence. Our team of enthusiastic travelers is dedicated to crafting unforgettable journeys.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=100064947096297&name=xhp_nt_fbliteprofile_tab_bar" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/the_travelmate?t=_E4s79wurKZxhOTbwS8T7Q&s=08" aria-label="Twitter"><i
+                                class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/travelmate_holidays_trivandrum?igsh=MWF2NnAxYngwMHc1bA==" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h4>Travel Packages</h4>
+                    <ul>
+                        <li><a href="honeymoon.html">Honeymoon Packages</a></li>
+                        <li><a href="keralapak.html">Kerala Packages</a></li>
+                        <li><a href="pilgrimpak.html">Pilgrim Packages</a></li>
+                        <li><a href="tamilnadupak.html">Tamilnadu Package</a></li>
+                        <li><a href="southindpak.html">South India Adventure Package</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="About.html">About</a></li>
+                        <li><a href="Service.html">Services</a></li>
+                        <li><a href="Contact.html">Contact Us</a></li>
+                        <li><a href="Booknow.html">Book Now</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h4>Contact Info</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> The Travelmate Holidays Inc<br> Thirumala P.O Trivandrum,<br> Kerala, India.</li>
+                        <li><i class="fas fa-phone"></i> +91 9048828890</li>
+                        <li><i class="fas fa-envelope"></i>thetravelmateholidays@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="container-fluid text-center py-2" style="background-color:#143049;">
+        <p class="mb-0 text-white small">
+            &copy; <span id="current-year"></span> Agileinfo Techytern Solutions LLP. All rights reserved.
+        </p>
+    </div>
+
+    <!-- Social Contact Buttons -->
+
+    <div class="social-contact-container">
+        <a href="https://wa.me/+91 9048828890" target="_blank" class="social-contact-btn whatsapp-btn" aria-label="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="tel:+91 9048828890" class="social-contact-btn phone-btn" aria-label="Call Us">
+            <i class="fas fa-phone"></i>
+        </a>
+        <a href="mailto:thetravelmateholidays@gmail.com" class="social-contact-btn email-btn" aria-label="Email Us">
+            <i class="fas fa-envelope"></i>
+        </a>
+    </div>
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const navbarHeight = document.querySelector('.navbar').offsetHeight;
+            document.body.style.paddingTop = `${navbarHeight}px`;
+        });
+
+        // Get current year
+
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>
