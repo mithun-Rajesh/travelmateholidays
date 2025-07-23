@@ -4,7 +4,7 @@
 
 ## 🌐 Live Preview
 
-_(Add your live URL here if deployed, e.g. GitHub Pages, Vercel, etc.)_
+https://travelmateholidays.vercel.app/
 
 ## 📁 Project Structure
 
